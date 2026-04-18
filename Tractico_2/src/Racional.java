@@ -6,7 +6,6 @@ public class Racional {
     public Racional(){
         this.numerador = 0;
         this.denominador = 1;
-        simplificar();
     }
 
     //Pedir Racional
@@ -56,10 +55,80 @@ public class Racional {
     }
 
     public Racional simplificar(){
+        int divisor = mcd(Math.abs(numerador), Math.abs(denominador));
 
+        numerador /= divisor;
+        denominador /= divisor;
+
+        if (denominador < 0) {
+            numerador *= -1;
+            denominador *= -1;
+        }
+
+        return this;
     }
 
     public double aDecimal(){
         return (double) numerador/denominador;
+    }
+
+    @Override
+    public String toString() {
+        return numerador + "/" + denominador;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Racional) {
+            Racional otro = (Racional) obj;
+
+            return this.numerador * otro.denominador == otro.numerador * this.denominador;
+        }
+
+        return false;
+    }
+
+    public int compareTo(Racional r) {
+        int valor1 = this.numerador * r.denominador;
+        int valor2 = r.numerador * this.denominador;
+
+        return Integer.compare(valor1,valor2);
+    }
+
+    public static Racional sumar(Racional r1,Racional r2){
+        int nume = r1.numerador * r2.denominador + r2.numerador * r1.denominador;
+        int demo = r1.denominador * r2.denominador;
+
+        return new Racional(nume,demo);
+    }
+
+    public static Racional restar(Racional r1,Racional r2){
+        int nume = r1.numerador * r2.denominador - r2.numerador * r1.denominador;
+        int demo = r1.denominador * r2.denominador;
+
+        return new Racional(nume,demo);
+    }
+
+    public static Racional multiplicar(Racional r1,Racional r2){
+        int nume = r1.numerador * r2.numerador;
+        int demo = r1.denominador * r2.denominador;
+
+        return new Racional(nume,demo);
+    }
+
+    public static Racional dividir(Racional r1,Racional r2){
+        int nume = r1.numerador * r2.denominador;
+        int demo = r1.denominador * r2.numerador;
+
+        return new Racional(nume,demo);
+    }
+
+    private static int mcd(int a, int b){
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
     }
 }

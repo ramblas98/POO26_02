@@ -35,7 +35,11 @@ public class main1 {
         Racional resta = Racional.restar(r1,r2);
         resta.simplificar();
         System.out.println(resta);
-        System.out.println(r1 + "-1" + r2 + "=" + resta);
-        
+        System.out.println(r1 + "-" + r2 + "=" + resta);
+
+        Racional multi = Racional.multiplicar(r1,r2);
+        multi.simplificar();
+        System.out.println(multi);
+        System.out.println(r1 + "*" + r2 + "=" + multi);
     }
 }

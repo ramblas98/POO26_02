@@ -59,7 +59,11 @@ public class EJERCICIO_5_TP2 {
             } */
             
             //CON ASISTENCIA OBLIGATORIA
-            //   Aprobó ambos parciales, O recuperó el que le faltaba
+            /*
+            aprobó ambos parciales, O el recuperatorio
+            le salvó al menos uno que había desaprobado,
+            Y además tiene asistencia suficiente
+            */
             if(((nota1>=60 && nota2>=60) || (notaR>=60 && (nota1<60 || nota2<60))) && asistencia>=20){
                 e.setRegular(true);
             } else {

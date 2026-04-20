@@ -11,6 +11,10 @@ public class Racional {
     //Pedir Racional
     public Racional(int numerador, int denominador){
         this.numerador = numerador;
+        if(denominador == 0){
+            this.denominador = 1;
+            System.out.println("Tiene que ser distinto de 0 pero se agrego 1 por defecto");
+        }
         this.denominador = denominador;
     }
 

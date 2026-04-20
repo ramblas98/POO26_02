@@ -87,10 +87,8 @@ public class Racional {
             return false;
         }
         Racional otro = (Racional) obj;
-        if (obj instanceof Racional) {
-
-
-            return this.numerador * otro.denominador == otro.numerador * this.denominador;
+        if (this.equals(otro)) {
+            return true;
         }
 
         return false;

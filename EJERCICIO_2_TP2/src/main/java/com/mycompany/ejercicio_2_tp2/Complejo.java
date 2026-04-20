@@ -173,6 +173,6 @@ public class Complejo {
     //toString
     @Override
     public String toString() {
-        return "Complejo: (" + "real: " + real + ", imaginaria:" + imaginaria + 'i' + ')';
+        return "Complejo: (" + "real: " + String.format("%.2f", real) + ", imaginaria:" + String.format("%.2f", imaginaria) + 'i' + ')';
     }
 }

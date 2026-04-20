@@ -58,5 +58,6 @@ public class EJERCICIO_1 {
         Fecha evento = new Fecha(1, 1, 2027);
         int diasRestantes = hoy.diferenciaEnDias(evento);
         System.out.println("Dias hasta el evento: " + diasRestantes);
+        
     }
 }

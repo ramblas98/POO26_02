@@ -79,8 +79,16 @@ public class Racional {
 
     @Override
     public boolean equals(Object obj) {
+        if(this == obj){
+            return true;
+        }
+
+        if (obj == null){
+            return false;
+        }
+        Racional otro = (Racional) obj;
         if (obj instanceof Racional) {
-            Racional otro = (Racional) obj;
+
 
             return this.numerador * otro.denominador == otro.numerador * this.denominador;
         }

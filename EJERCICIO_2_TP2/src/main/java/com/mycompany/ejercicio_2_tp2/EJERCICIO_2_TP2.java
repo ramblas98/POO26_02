@@ -9,6 +9,7 @@ package com.mycompany.ejercicio_2_tp2;
  * @author USUARIO
  */
 public class EJERCICIO_2_TP2 {
+    //OTRA FORMA DE USAR LOS STATIC
     public static Complejo multiplicar(Complejo c1, Complejo c2){
         double nuevoReal = (c1.getReal() * c2.getReal()) - (c1.getImaginaria() * c2.getImaginaria()); // anteponemos el - para que haga el producto (-1)
         double nuevoImaginario = (c1.getReal() * c2.getImaginaria()) + (c1.getImaginaria()*c2.getReal());

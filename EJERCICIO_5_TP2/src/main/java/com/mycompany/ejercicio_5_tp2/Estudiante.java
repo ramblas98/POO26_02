@@ -105,10 +105,9 @@ public class Estudiante {
     }
     
     //toString
-
     @Override
     public String toString() {
         return "Estudiante{" + "apellidos: " + apellidos + ", nombres: " + nombres + ", lu: " + lu + '}';
     }
-    
+    //asd
 }

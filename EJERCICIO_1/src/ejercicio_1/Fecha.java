@@ -26,8 +26,8 @@ public class Fecha {
         this.mes = m;
         this.anio = a;
     }
-
-    // Getters devuelve la compia del atributo 
+    
+    // Getters devuelve la copia del atributo 
     public int getDia() { 
 
         return dia; 
@@ -48,12 +48,6 @@ public class Fecha {
     }
     public void setAnio(int a) { 
         this.anio = a; normalizar(); 
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        return hash;
     }
 
     @Override
@@ -100,14 +94,14 @@ public class Fecha {
     // Validar
     private boolean valida() {
         if (mes < 1 || mes > 12) return false;
-        if (dia < 1 || dia > dias(mes)) return false;
+        if (dia < 1 || dia > diasDelMes(mes)) return false;
         return true;
     }
 
     // Normalizar (clave del ejercicio)
     public void normalizar() { // por si se pasa del numero de dias del mes
-        while (dia > dias(mes)) {
-            dia -= dias(mes);
+        while (dia > diasDelMes(mes)) {
+            dia -= diasDelMes(mes);
             mes++;
             if (mes > 12) {
                 mes = 1;
@@ -117,7 +111,7 @@ public class Fecha {
     }
 
     // Días por mes
-    private int dias(int mes) {
+    private int diasDelMes(int mes) {
         switch (mes) {
             case 1: case 3: case 5: case 7: case 8: case 10: case 12:
                 return 31;
@@ -152,23 +146,6 @@ public class Fecha {
         return this.dia - f.dia;
     }
 
-    // Convertir fecha a "número de días" (base)
-    private int toDias() {
-        int total = 0;
-        // Años
-        for (int i = 1; i < anio; i++) {
-            total += esBisiesto(i) ? 366 : 365;
-        }
-        // Meses
-        for (int i = 1; i < mes; i++) {
-            total += dias(i);
-        }
-        // Días
-        total += dia;
-        
-        return total;
-    }
-
     // Diferencia en días
     public int diferenciaEnDias(Fecha otra) {
        int total1 = anio * 360 + mes * 30 + dia;
@@ -177,14 +154,47 @@ public class Fecha {
     }
 
     // Formatear
-    public String formatear(String fmt) {
+    /*public String formatear(String fmt) {
         return fmt
                 .replace("DD", String.format("%02d", dia))
                 .replace("MM", String.format("%02d", mes))
                 .replace("AAAA", String.valueOf(anio));
-    }
+    }*/
+    
+    public String formatear(String formato) {
 
-    // Hoy (manual simple, sin librerías)
+    String d = (dia < 10 ? "0" : "") + dia;
+    String m = (mes < 10 ? "0" : "") + mes;
+    String a = "" + anio;
+
+    String resultado = "";
+
+    for (int i = 0; i < formato.length(); i++) {
+
+        // Detectar "DD"
+        if (i + 1 < formato.length() && formato.substring(i, i + 2).equals("DD")) {
+            resultado += d;
+            i++; // saltar la segunda D
+        }
+        // Detectar "MM"
+        else if (i + 1 < formato.length() && formato.substring(i, i + 2).equals("MM")) {
+            resultado += m;
+            i++;
+        }
+        // Detectar "AAAA"
+        else if (i + 3 < formato.length() && formato.substring(i, i + 4).equals("AAAA")) {
+            resultado += a;
+            i += 3;
+        }
+        // Copiar cualquier otro carácter
+        else {
+            resultado += formato.charAt(i);
+        }
+    }
+    return resultado;
+}
+
+    // Hoy 
     public static Fecha hoy() {
       Calendar cal = Calendar.getInstance();
       int d = cal.get(Calendar.DAY_OF_MONTH);

@@ -54,7 +54,7 @@ public class main1 {
         r2.setDenominador(5);
         System.out.println(r2);
         System.out.println("--------------");
-        
+
         Racional suma = Racional.sumar(r1,r2);
         suma.simplificar();
         System.out.println(suma);

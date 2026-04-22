@@ -29,7 +29,6 @@ public class Fecha {
     
     // Getters devuelve la copia del atributo 
     public int getDia() { 
-
         return dia; 
     }
     public int getMes() { 

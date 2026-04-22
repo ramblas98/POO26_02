@@ -53,10 +53,13 @@ public class main1 {
 
         System.out.println("--------------");
         System.out.println("Metodos de instancia:");
+
         Racional temp = new Racional(3,8);
         temp.simplificar();
+
         Racional temp2 = new Racional(5,10);
         temp2.simplificar();
+        
         temp.sumar(temp2);
         System.out.println(temp);
 

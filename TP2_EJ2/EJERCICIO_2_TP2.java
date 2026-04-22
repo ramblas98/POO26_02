@@ -80,5 +80,17 @@ public class EJERCICIO_2_TP2 {
         if(b){
             System.out.println("Son iguales");
         } else System.out.println("No son iguales");
+
+        //USO DE GET Y SET
+        Auto c14 = new Auto();
+
+        System.out.printf("Ingrese Parte real: ");
+        int pReal = teclado.nextInt();
+        c14.setReal(pReal);
+        System.out.printf("Ingrese Parte Imaginario: ");
+        int pImaginaria = teclado.nextInt();
+        c14.setImaginaria(pImaginaria);
+
+        System.out.println("Complejo: " + c14.getReal() + c14.getImaginaria());
     }
 }

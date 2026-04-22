@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class main1 {
     public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
 
         Racional r1,r2;
 
@@ -59,7 +58,7 @@ public class main1 {
 
         Racional temp2 = new Racional(5,10);
         temp2.simplificar();
-        
+
         temp.sumar(temp2);
         System.out.println(temp);
 

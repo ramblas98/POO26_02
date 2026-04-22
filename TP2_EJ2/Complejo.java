@@ -15,6 +15,8 @@ public class Complejo {
 
     //constructor sin parametro
     public Complejo() {
+        this.real = 0;
+        this.imaginaria=0;
     }
 
     //constructor
@@ -53,8 +55,8 @@ public class Complejo {
 
     //resta
     public void restar(Complejo otro){
-        this.real = this.real - otro.real;
-        this.imaginaria = this.imaginaria - otro.imaginaria;
+        this.real -= otro.real;
+        this.imaginaria -= otro.imaginaria;
     }
 
     //multiplicacion

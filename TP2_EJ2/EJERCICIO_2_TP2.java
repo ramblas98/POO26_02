@@ -18,7 +18,7 @@ public class EJERCICIO_2_TP2 {
     public static Complejo sumar(Complejo c1, Complejo c2){
         double resultadoReal = c1.getReal()+c2.getReal();
         double resultadoImaginario = c1.getImaginaria()+c2.getImaginaria();
-        return new Complejo(resultadoReal,resultadoImaginario);
+        return new Complejos(resultadoReal,resultadoImaginario);
     } **/
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);

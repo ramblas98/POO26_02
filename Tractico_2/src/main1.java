@@ -3,30 +3,23 @@ import java.util.Scanner;
 public class main1 {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-        int n,d;
+
         Racional r1,r2;
+
         r1 = new Racional();
         r2 = new Racional();
         System.out.println(r1);
         System.out.println(r2);
+
+
         System.out.println("--------------");
 
-        System.out.println("Ingrese numerador: ");
-        n = sc.nextInt();
-        System.out.println("Ingrese denominador: ");
-        d = sc.nextInt();
-
-        r1 = new Racional(n,d);
+        r1 = new Racional(3,6);
         r1.simplificar();
         System.out.println(r1);
         System.out.println("--------------");
 
-        System.out.println("Ingrese numerador: ");
-        n = sc.nextInt();
-        System.out.println("Ingrese denominador: ");
-        d = sc.nextInt();
-
-        r2 = new Racional(n,d);
+        r2 = new Racional(5,10);
         r2.simplificar();
         System.out.println(r2);
 
@@ -38,21 +31,48 @@ public class main1 {
             System.out.println("No son iguales");
         }
         System.out.println("--------------");
+
         System.out.println(r1);
+
         System.out.println("Pedir numerador usando Getter:");
         int numer = r1.getNumerador();
         System.out.println(numer);
+
         System.out.println("Pedir Denominador usando Getter:");
         int denom = r1.getDenominador();
         System.out.println(denom);
+
         System.out.println("--------------");
 
         System.out.println(r2);
-        System.out.println("Cambiar numerador con Setter:");
+        System.out.println("Cambiar numerador y denominador con Setter:");
         r2.setNumerador(2);
-        System.out.println("Cambiar denominador con Setter:");
+
         r2.setDenominador(5);
         System.out.println(r2);
+
+        System.out.println("--------------");
+        System.out.println("Metodos de instancia:");
+        Racional temp = new Racional(3,8);
+        temp.simplificar();
+        Racional temp2 = new Racional(5,10);
+        temp2.simplificar();
+        temp.sumar(temp2);
+        System.out.println(temp);
+
+        temp.restar(temp2);
+        System.out.println(temp);
+
+        temp.multiplicar(temp2);
+        System.out.println(temp);
+
+        temp.dividir(temp2);
+        System.out.println(temp);
+
+        System.out.println("--------------");
+        System.out.println(r1 + " a decimal -> " + r1.aDecimal());
+        System.out.println("--------------");
+        System.out.println(r1.compareTo(r2));
         System.out.println("--------------");
 
         Racional suma = Racional.sumar(r1,r2);
@@ -70,13 +90,13 @@ public class main1 {
         Racional multi = Racional.multiplicar(r1,r2);
         multi.simplificar();
         System.out.println(multi);
-        System.out.println(r1 + "*" + r2 + "=" + multi);
+        System.out.println(r1 + " * " + r2 + "=" + multi);
         System.out.println("--------------");
 
         Racional divi = Racional.dividir(r1,r2);
         divi.simplificar();
         System.out.println(divi);
-        System.out.println(r1 + "/" + r2 + "=" + divi);
+        System.out.println(r1 + " / " + r2 + "=" + divi);
         System.out.println("--------------");
     }
 }

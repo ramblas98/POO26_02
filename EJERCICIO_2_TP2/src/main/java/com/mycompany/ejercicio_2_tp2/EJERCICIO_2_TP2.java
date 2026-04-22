@@ -4,6 +4,8 @@
 
 package com.mycompany.ejercicio_2_tp2;
 
+import java.util.Scanner;
+
 /**
  *
  * @author USUARIO
@@ -81,5 +83,20 @@ public class EJERCICIO_2_TP2 {
         if(b){
             System.out.println("Son iguales");
         } else System.out.println("No son iguales");
+        
+        //GET Y SET
+        Scanner teclado = new Scanner(System.in);
+        
+        Complejo c18 = new Complejo();
+        System.out.print("Ingrese parte real: ");
+        double pReal = teclado.nextInt();
+        System.out.print("Ingrese parte imaginaria: ");
+        double pImaginaria = teclado.nextInt();
+        
+        c18.setReal(pReal);
+        c18.setImaginaria(pImaginaria);
+        
+        System.out.println("Complejo ingresado por teclado: "+ c18.getReal() + ' '+ c18.getImaginaria()+'i' );
+        
     }
 }

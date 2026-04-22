@@ -132,9 +132,12 @@ public class Complejo {
     funciona porque se está dentro de la misma clase, por eso se tiene
     acceso a los atributos privados sin problema. Desde otra clase ya no se podría. */
     public static Complejo sumar(Complejo c1, Complejo c2){
-        double resultadoReal = c1.real+c2.real;
+        c1.sumar(c2);
+        Complejo resultado = new Complejo(c1.getReal(),c1.getImaginaria());
+        return resultado;
+        /*double resultadoReal = c1.real+c2.real;
         double resultadoImaginario = c1.imaginaria+c2.imaginaria;
-        return new Complejo(resultadoReal,resultadoImaginario);
+        return new Complejo(resultadoReal,resultadoImaginario); */
     }
     
     public static Complejo restar(Complejo c1, Complejo c2){

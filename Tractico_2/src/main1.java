@@ -20,7 +20,7 @@ public class main1 {
         r1.simplificar();
         System.out.println(r1);
         System.out.println("--------------");
-        
+
         System.out.println("Ingrese numerador: ");
         n = sc.nextInt();
         System.out.println("Ingrese denominador: ");
@@ -30,6 +30,7 @@ public class main1 {
         r2.simplificar();
         System.out.println(r2);
 
+        Racional r3 = r1;
         System.out.println("--------------");
         if(r1.equals(r2)){
             System.out.println("Son iguales");
@@ -37,12 +38,29 @@ public class main1 {
             System.out.println("No son iguales");
         }
         System.out.println("--------------");
+        System.out.println(r1);
+        System.out.println("Pedir numerador usando Getter:");
+        int numer = r1.getNumerador();
+        System.out.println(numer);
+        System.out.println("Pedir Denominador usando Getter:");
+        int denom = r1.getDenominador();
+        System.out.println(denom);
+        System.out.println("--------------");
 
+        System.out.println(r2);
+        System.out.println("Cambiar numerador con Setter:");
+        r2.setNumerador(2);
+        System.out.println("Cambiar denominador con Setter:");
+        r2.setDenominador(5);
+        System.out.println(r2);
+        System.out.println("--------------");
+        
         Racional suma = Racional.sumar(r1,r2);
         suma.simplificar();
         System.out.println(suma);
         System.out.println(r1 + "+" + r2 + "=" + suma);
         System.out.println("--------------");
+
         Racional resta = Racional.restar(r1,r2);
         resta.simplificar();
         System.out.println(resta);

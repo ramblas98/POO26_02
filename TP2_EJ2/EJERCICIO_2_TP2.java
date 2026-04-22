@@ -21,6 +21,7 @@ public class EJERCICIO_2_TP2 {
         return new Complejo(resultadoReal,resultadoImaginario);
     } **/
     public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
         Complejo c1 = new Complejo(3,2);
         Complejo c2 = new Complejo(1,7);
 
@@ -82,7 +83,7 @@ public class EJERCICIO_2_TP2 {
         } else System.out.println("No son iguales");
 
         //USO DE GET Y SET
-        Auto c14 = new Auto();
+        Complejo c14 = new Complejo();
 
         System.out.printf("Ingrese Parte real: ");
         int pReal = teclado.nextInt();

@@ -15,7 +15,7 @@ public class EJERCICIO_5_TP2 {
 
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
-        ArrayList<Estudiante> lista = new ArrayList<Estudiante>();
+        ArrayList<Estudiante> lista = new ArrayList<Estudiante>(); //cambio para que funcione en la notebook
         
         //ingreso de los alumnos
         System.out.print("Ingrese la cantidad de alumnos: ");

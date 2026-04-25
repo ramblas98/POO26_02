@@ -73,13 +73,13 @@ public class EJERCICIO_5_TP2 {
             
             lista.add(e);
         }
-        
+        //Muestra de los alumnos ya sean regulares o libres
         System.out.println("=== ALUMNOS REGULARES ===");
         for(Estudiante e: lista){
             if(e.isRegular()){
                 System.out.println(e);
             }
-        }
+        } //Alumnos libres...
         System.out.println("=== ALUMNOS NO REGULARES ===");
         for (Estudiante e: lista){
             if(!e.isRegular()){

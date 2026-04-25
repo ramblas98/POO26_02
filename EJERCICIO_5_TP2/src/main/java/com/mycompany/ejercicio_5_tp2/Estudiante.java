@@ -9,6 +9,7 @@ package com.mycompany.ejercicio_5_tp2;
  * @author USUARIO
  */
 public class Estudiante {
+    //Atributos
     private String apellidos;
     private String nombres;
     private int lu;

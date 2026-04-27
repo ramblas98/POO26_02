@@ -17,7 +17,7 @@ public class TP2_EJERCICIO_4 {
      */
     
     public static void main(String[] args) {
-        // TODO code application logic here
+        // Ejercicio 4
         
         //Los coeficientes se cargan de atras para adelante
         double[] listaCoef1 = {7,-10,2,4,3}; 

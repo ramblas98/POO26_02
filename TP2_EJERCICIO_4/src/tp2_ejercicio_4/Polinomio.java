@@ -6,7 +6,7 @@ package tp2_ejercicio_4;
 
 /**
  *
- * @author Pc
+ * @author Rita y Jazmin
  */
 import java.util.Arrays;
 import java.util.Scanner;

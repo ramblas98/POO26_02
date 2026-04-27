@@ -9,7 +9,7 @@ import java.util.Arrays;
  *
  * @author Pc
  */
-//import java.util.Arrays;
+
 public class TP2_EJERCICIO_4 {
 
     /**
@@ -26,6 +26,7 @@ public class TP2_EJERCICIO_4 {
         double[] listaCoef4 = {2,-1};
         
         //Ingresar Polinomio
+        //Instancia un objeto
         //Polinomio p1= new Polinomio();
         //p1.ingresarPolinomio();
         //System.out.println(p1.toString());

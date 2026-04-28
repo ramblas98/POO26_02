@@ -74,7 +74,7 @@ public class Vendedor {
     
     public void setVentasMensuales(int mes, double monto){
         this.ventasMensuales[mes - 1] = monto;
-        System.out.println("Se agrego el monto del mes: " + mes + "correctamente");
+        System.out.println("Se agrego el monto del mes: " + mes + " correctamente");
     }
 
     public void setPersona(Persona persona) {

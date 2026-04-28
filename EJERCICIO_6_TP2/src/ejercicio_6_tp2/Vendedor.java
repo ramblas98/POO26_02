@@ -59,18 +59,12 @@ public class Vendedor {
         if(this.totalAnual>50000){
             if(this.totalAnual<75000){
                 this.comision = (this.totalAnual*15)/100;
-                this.totalAnual -= this.comision; // ¿Hace falta actualizar el anual?
             } else if(this.totalAnual <100000){
                 this.comision = (this.totalAnual*20)/100;
-                this.totalAnual -= this.comision;
             } else { //Mayor que $100000
                 this.comision = (this.totalAnual*30)/100;
-                this.totalAnual -= this.comision;
             }
-        } else {
-            System.out.println("El monto minimo anual debe ser mayor a $50,000");
         }
-        
         return this.comision;
     }
     
@@ -80,7 +74,7 @@ public class Vendedor {
     
     public void setVentasMensuales(int mes, double monto){
         this.ventasMensuales[mes - 1] = monto;
-        System.out.println("Se agregó el monto del mes: " + mes);
+        System.out.println("Se agrego el monto del mes: " + mes + "correctamente");
     }
 
     public void setPersona(Persona persona) {

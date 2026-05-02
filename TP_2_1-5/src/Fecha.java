@@ -172,6 +172,26 @@ public class Fecha {
     }
 
     public int diferenciaEnDias(Fecha otra){
+        return this.diasAbsolutos() - otra.diasAbsolutos();
+    }
 
+    private int diasAbsolutos(){
+        int diasTotales = 0;
+
+        for (int y = 1; y < this.anio; y++) {
+            diasTotales += 365;
+            if (Fecha.esBisiesto(y)) {
+                diasTotales += 1;
+            }
+        }
+
+        for (int m = 1; m < this.mes; m++) {
+            diasTotales += this.diasMes(m);
+        }
+
+        // 3. Sumar el día del mes actual
+        diasTotales += this.dia;
+
+        return diasTotales;
     }
 }

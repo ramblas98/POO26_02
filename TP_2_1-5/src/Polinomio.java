@@ -180,7 +180,6 @@ public class Polinomio {
     }
 
     public Polinomio[] dividir(Polinomio p) {
-        // Verificar que el divisor no sea el polinomio cero (todos sus coeficientes ≈ 0)
         boolean divisorCero = true;
         for (int i = 0; i <= p.grado; i++) {
             if (Math.abs(p.coeficientes[i]) > 1e-10) {
@@ -192,12 +191,9 @@ public class Polinomio {
             throw new ArithmeticException("División por polinomio cero");
         }
 
-        // Copiar el dividendo (this) en un polinomio resto que se irá modificando
         Polinomio resto = new Polinomio(this.coeficientes.clone());
-        // Cociente inicializado como polinomio cero del tamaño adecuado (máximo grado del cociente)
         int gradoCociente = this.grado - p.grado;
         if (gradoCociente < 0) {
-            // Si el grado del dividendo es menor que el del divisor, el cociente es cero y el resto es el dividendo
             Polinomio cociente = new Polinomio(new double[]{0.0});
             Polinomio residuo = new Polinomio(this.coeficientes.clone());
             return new Polinomio[]{cociente, residuo};
@@ -232,11 +228,163 @@ public class Polinomio {
         return true;
     }
 
+    public static Polinomio sumar(Polinomio p1, Polinomio p2){
+        Polinomio nuevo = new Polinomio(p1.coeficientes.clone());
+        //nuevo = new Polinomio(p1.grado);
+        nuevo.sumar(p2);
+        return nuevo;
+    }
+
+    public static Polinomio restar(Polinomio p1, Polinomio p2){
+        Polinomio nuevo = new Polinomio(p1.coeficientes.clone());
+        //nuevo = new Polinomio(p1.grado);
+        nuevo.restar(p2);
+        return nuevo;
+    }
+
+    public static Polinomio multiplicar(Polinomio p1, Polinomio p2){
+        Polinomio nuevo = new Polinomio(p1.coeficientes.clone());
+        //nuevo = new Polinomio(p1.grado);
+        nuevo.multiplicar(p2);
+        return nuevo;
+    }
+
+    public static Polinomio[] dividir(Polinomio p1, Polinomio p2){
+        if (p1 == null || p2 == null) {
+            throw new IllegalArgumentException("Los polinomios no pueden ser nulos");
+        }
+        Polinomio nuevo = new Polinomio(p1.coeficientes.clone());
+        //nuevo = new Polinomio(p1.grado);
+        return nuevo.dividir(p2);
+    }
+
     public double evaluar(double x) {
         double resultado = 0.0;
         for (int i = this.grado; i >= 0; i--) {
             resultado = resultado * x + this.coeficientes[i];
         }
         return resultado;
+    }
+
+    public Polinomio derivar() {
+        if (this.grado == 0) {
+            return new Polinomio(new double[]{0.0});
+        }
+
+        double[] nuevosCoef = new double[this.grado];
+
+        for (int i = 1; i <= this.grado; i++) {
+            nuevosCoef[i - 1] = i * this.coeficientes[i];
+        }
+
+        return new Polinomio(nuevosCoef);
+    }
+
+    public Polinomio integrar() {
+        int nuevoGrado = this.grado + 1;
+        double[] nuevosCoef = new double[nuevoGrado + 1];
+
+        nuevosCoef[0] = 0.0;
+
+        for (int i = 0; i <= this.grado; i++) {
+            nuevosCoef[i + 1] = this.coeficientes[i] / (i + 1.0);
+        }
+
+        return new Polinomio(nuevosCoef);
+    }
+
+    public double[] calcularRaices() {
+        final double EPS = 1e-10;
+
+        if (this.grado == 0) {
+            return new double[0];
+        }
+
+        if (this.grado == 1) {
+            double a = this.coeficientes[1];
+            double b = this.coeficientes[0];
+            if (Math.abs(a) < EPS) {
+                return new double[0];
+            }
+            double raiz = -b / a;
+            return new double[]{raiz};
+        }
+
+        if (this.grado == 2) {
+            double a = this.coeficientes[2];
+            double b = this.coeficientes[1];
+            double c = this.coeficientes[0];
+
+            if (Math.abs(a) < EPS) {
+                if (Math.abs(b) < EPS) {
+                    return new double[0];
+                }
+                double raiz = -c / b;
+                return new double[]{raiz};
+            }
+
+            double discriminante = b * b - 4 * a * c;
+            if (discriminante < -EPS) {
+                return new double[0];
+            }
+            if (Math.abs(discriminante) < EPS) {
+                double raiz = -b / (2 * a);
+                return new double[]{raiz};
+            }
+            double sqrtD = Math.sqrt(discriminante);
+            double raiz1 = (-b + sqrtD) / (2 * a);
+            double raiz2 = (-b - sqrtD) / (2 * a);
+            if (raiz1 > raiz2) {
+                double temp = raiz1;
+                raiz1 = raiz2;
+                raiz2 = temp;
+            }
+            return new double[]{raiz1, raiz2};
+        }
+
+        throw new UnsupportedOperationException("Cálculo de raíces solo para grado ≤ 2");
+    }
+
+    @Override
+    public String toString() {
+        boolean esCero = true;
+        for (int i = 0; i <= this.grado; i++) {
+            if (Math.abs(this.coeficientes[i]) > 1e-10) {
+                esCero = false;
+                break;
+            }
+        }
+        if (esCero) {
+            return "0";
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = this.grado; i >= 0; i--) {
+            double coef = this.coeficientes[i];
+            if (Math.abs(coef) < 1e-10) {
+                continue;
+            }
+            if (sb.length() == 0) {
+                if (coef < 0) {
+                    sb.append("-");
+                }
+            } else {
+                sb.append(coef > 0 ? " + " : " - ");
+            }
+            double absCoef = Math.abs(coef);
+            if (i == 0) {
+                sb.append(String.format("%.2f", absCoef));
+            } else {
+                if (Math.abs(absCoef - 1.0) < 1e-10) {
+                    sb.append("x");
+                } else {
+                    sb.append(String.format("%.2f", absCoef)).append("x");
+                }
+                if (i > 1) {
+                    sb.append("^").append(i);
+                }
+            }
+        }
+        return sb.toString();
     }
 }

@@ -58,17 +58,17 @@ public class EJERCICIO_7 {
 
                     System.out.println("Historia #" + h.getId()
                         + " (" + h.getCodigoPaciente() + ")"
-                        + " → Dr. " + medicoAsignado.getNombre());
+                        + " Dr. " + medicoAsignado.getNombre());
                 } else {
                     System.out.println("Historia #" + h.getId()
                         + " (" + h.getCodigoPaciente() + ")"
-                        + " → No se pudo asignar.");
+                        + " No se pudo asignar.");
                 }
 
             } else {
                 System.out.println("Historia #" + h.getId()
                     + " (" + h.getCodigoPaciente() + ")"
-                    + " → No hay médico disponible para " + h.getEspecialidadRequerida());
+                    + " No hay médico disponible para " + h.getEspecialidadRequerida());
             }
         }
 

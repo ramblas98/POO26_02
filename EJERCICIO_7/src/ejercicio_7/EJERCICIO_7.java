@@ -14,7 +14,7 @@ public class EJERCICIO_7 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
+        
         // ── 1. Crear los médicos ───────────────────────────────────────────
         Medico nortes    = new Medico("Nortes",    5677, Especialidad.PEDIATRIA);
         Medico gutierrez = new Medico("Gutierrez", 4568, Especialidad.FAMILIA);
@@ -71,7 +71,7 @@ public class EJERCICIO_7 {
                     + " No hay médico disponible para " + h.getEspecialidadRequerida());
             }
         }
-
+        
         // ── Mostrar estado final del cuadro ───────────────────────────────
         System.out.println();
         cuadro.mostrarCuadro();

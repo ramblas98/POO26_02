@@ -21,6 +21,7 @@ public class EJERCICIO_7 {
         Medico mayor     = new Medico("Mayor",     7890, Especialidad.FAMILIA);
         Medico guillen   = new Medico("Guillen",   4567, Especialidad.TRAUMATOLOGIA);
         Medico mateo     = new Medico("Mateo",     8976, Especialidad.TRAUMATOLOGIA);
+        Medico carlos    = new Medico("Carlos",     1579, Especialidad.TRAUMATOLOGIA);
 
         // ── 2. Crear el cuadro médico e insertar todos los médicos ─────────
         CuadroMedico cuadro = new CuadroMedico();
@@ -29,6 +30,7 @@ public class EJERCICIO_7 {
         cuadro.insertarMedico(mayor);
         cuadro.insertarMedico(guillen);
         cuadro.insertarMedico(mateo);
+        cuadro.insertarMedico(carlos);
 
         // ── 3. Crear la lista de historias ────────────────────────────────
         List<Historia> historias = new ArrayList<>();

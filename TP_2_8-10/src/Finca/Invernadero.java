@@ -47,11 +47,11 @@ public class Invernadero {
     }
 
     public int getDisponibilidad(){
-        return capacidadMaxima - listaDeLotes.size();
+        return this.capacidadMaxima - this.listaDeLotes.size();
     }
 
     public void asignarLoteSiembra(LoteSiembra lote){
-        if(listaDeLotes.size() < capacidadMaxima){
+        if(this.listaDeLotes.size() < this.capacidadMaxima){
             listaDeLotes.add(lote);
             lote.setInvernaderoAsignado(this);
         }

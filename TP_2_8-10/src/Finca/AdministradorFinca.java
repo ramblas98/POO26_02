@@ -20,12 +20,15 @@ public class AdministradorFinca {
 
     public Invernadero obtenerMejorInvernadero(Clima c){
         Invernadero mejorInvernadero = null;
-        int disponibilad = 0;
-        for(Invernadero i : listaDeInvernaderos){
+        //int disponibilad = 0;
+        for(Invernadero i : this.listaDeInvernaderos){
             if(i.getClima() == c){
-                if(i.getDisponibilidad() > disponibilad){
-                    disponibilad = i.getDisponibilidad();
+                if(mejorInvernadero == null){
                     mejorInvernadero = i;
+                }else{
+                    if(i.getDisponibilidad() > mejorInvernadero.getDisponibilidad()){
+                        mejorInvernadero = i;
+                    }
                 }
             }
         }

@@ -54,7 +54,7 @@ public class EJERCICIO_9 {
             }
         }
         // Mostrar horas libres de los progrmadores
-        System.out.println("====HORAS LIBRES====");
+        System.out.println("====HORAS LIBRES");
         System.out.println("ANA -> horas libres: " + p1.getHorasLibres());
                 
         for (Programador p : gestor.getProgramadores()){

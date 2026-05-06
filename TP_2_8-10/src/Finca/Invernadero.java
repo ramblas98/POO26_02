@@ -1,5 +1,6 @@
 package Finca;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Invernadero {
@@ -14,6 +15,7 @@ public class Invernadero {
         this.clima = Clima.TROPICAL;
         this.codigo = 1;
         this.nombre = "anonimo";
+        this.listaDeLotes = new ArrayList<>();
     }
 
     public Invernadero(String nombre, int cod, Clima clima, int capMax){
@@ -21,6 +23,7 @@ public class Invernadero {
         this.codigo = cod;
         this.nombre = nombre;
         this.clima = clima;
+        this.listaDeLotes = new ArrayList<>();
     }
 
     public String getNombre() {
@@ -48,9 +51,9 @@ public class Invernadero {
     }
 
     public void asignarLoteSiembra(LoteSiembra lote){
-        if(lote.getInvernadero() == null){
-            lote.invernaderoAsignado = new Invernadero();
+        if(listaDeLotes.size() < capacidadMaxima){
             listaDeLotes.add(lote);
+            lote.setInvernaderoAsignado(this);
         }
     }
 }

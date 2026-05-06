@@ -16,20 +16,24 @@ public class Main {
         invernaderos.add(inv1);
         invernaderos.add(inv2);
         invernaderos.add(inv3);
+
         AdministradorFinca fincas = new AdministradorFinca(invernaderos);
+
         List<LoteSiembra> siembras = new ArrayList<>();
-        siembras.add(new LoteSiembra(123,"peligro",Clima.TROPICAL));
-        siembras.add(new LoteSiembra(113,"peligro",Clima.TEMPLADO));
-        siembras.add(new LoteSiembra(320,"peligro",Clima.SECO));
-        siembras.add(new LoteSiembra(149,"peligro",Clima.TROPICAL));
-        siembras.add(new LoteSiembra(17123,"peligro",Clima.SECO));
+
+        siembras.add(new LoteSiembra("peligro",Clima.TROPICAL));
+        siembras.add(new LoteSiembra("peligro",Clima.TEMPLADO));
+        siembras.add(new LoteSiembra("peligro",Clima.SECO));
+        siembras.add(new LoteSiembra("peligro",Clima.TROPICAL));
+        siembras.add(new LoteSiembra("peligro",Clima.SECO));
 
         for(LoteSiembra i : siembras){
-            Invernadero nuevo = fincas.obtenerMejorInvernadero(i.getClimaRequerido());
-            if(nuevo == null){
-                System.out.println("ALERTA! Lote[" + i.getIdLote() + "] sin refugio");
+            Invernadero mejor = fincas.obtenerMejorInvernadero(i.getClimaRequerido());
+            if(mejor != null){
+                mejor.asignarLoteSiembra(i);
+                System.out.println("SALVADO! Lote["+i.getIdLote()+"] de ["+i.getEspecie()+"] asignado a Invernadero["+mejor.getNombre()+"]");
             }else{
-                System.out.println("SALVADO! Lote["+i.getIdLote()+"] de ["+i.getEspecie()+"] asignado a Invernadero["+i.getInvernadero()+"]");
+                System.out.println("ALERTA! Lote[" + i.getIdLote() + "] sin refugio");
             }
         }
     }

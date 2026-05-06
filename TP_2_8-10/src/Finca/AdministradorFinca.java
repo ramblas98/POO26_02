@@ -1,12 +1,13 @@
 package Finca;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdministradorFinca {
     private List<Invernadero> listaDeInvernaderos;
 
     public AdministradorFinca(){
-        this.listaDeInvernaderos = null;
+        this.listaDeInvernaderos = new ArrayList<>();
     }
 
     public AdministradorFinca(List<Invernadero> invernaderos){
